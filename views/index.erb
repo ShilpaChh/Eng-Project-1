@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>MakersBnB</title>
+
+        <!--
+            # Head to https://github.com/makersacademy/web-applications/blob/main/pills/loading_css_or_static_files.md
+            # If you're wondering how the CSS file below is being loaded.
+        -->
+        <link rel="stylesheet" type="text/css" href="/style.css" />
+    </head>
+    <body>
+        <h1>Feel at home, anywhere</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. A pellentesque sit amet porttitor.</p>
+        <h2>Sign up to MakersBnB</h2>
+    
+        <div class="container">
+            <form method="POST" action="/users">
+            <div class="row">
+                <div class="col-25">
+                    <label for="email">Email Address</label>
+                </div>
+                <div class="col-75">
+                    <input id="email" type="text" name="email_address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="password">Password</label>
+                </div>
+                <div class="col-75">
+                    <input id="password" type="password" name="password_input">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="password_confirm">Password confirmation</label>
+                </div>
+                <div class="col-75">
+                    <input id="password_confirm" type="password" name="password_digest">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <input type="submit" value="Sign up">
+            </div>
+            </form>
+            <br>
+            <form action="/login" method="GET">
+                <div class="row">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

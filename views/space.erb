@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+      <h1><%= @space.name %></h1>
+      <p><%= @space.description %></p>
+      <h3>£<%= @space.price %> per night</h3>
+      <form method="POST" action="/requests" >
+        <label for="date_select_1">When would you like to check in?</label>
+        <br>
+        <br>
+        <input type="date"
+          id="date_select_1"
+          name="requested_from"
+          min="<%= @space.available_from %>"
+          max="<%= @space.available_to %>"
+          value="<%= @space.available_from %>">
+        <br>
+        <br>
+        <label for="date_select_2">When would you like to check out?</label>
+        <br>
+        <br>
+        <input type="date"
+          id="date_select_2"
+          name="requested_to"
+          min="<%= @space.available_from %>"
+          max="<%= @space.available_to %>"
+          value="<%= @space.available_from %>">
+        <br>
+        <br>
+        <input type="hidden" name="user_id" value="<%= @space.user_id %>">
+        <input type="hidden" name="space_id" value="<%= @space.id %>">
+        <input type="hidden" name="status" value="<%= false %>">
+        <input type="submit" value="Request to Book">
+      </form>
+    </body>
+</html>

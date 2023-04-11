@@ -1,0 +1,118 @@
+<style>
+body {
+    text-align: center;
+    padding: 50px 50px 50px 50px;
+    border: solid 1px;
+    
+}
+
+h1 {
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.form1 {
+    margin: 30px 30px;
+}
+.avail1 {
+    margin: 0px 20px 20px 50px;
+}
+
+.avail2 {
+    margin: 0px 20px 20px 50px;
+}
+
+.listbutton[type=submit]{
+    background-color: #04AA6D;
+  color: white;
+  padding: 12px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    margin-left: 30px;
+    width: 100px;
+}
+.listbutton[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.filt[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+    margin-left: 30px;
+    width: 100px;
+}
+
+.filt[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.cardbox {
+    border: solid 1px #006600;
+    padding-top: 20px;
+    margin: 0 20% 0 20%;
+}
+.cards {
+    background-color: #e6ffe6;
+    border: solid 5px #006600;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    width: 700px;
+}
+
+ul {
+    text-align: center;
+    /* margin: auto; */
+    display: block;
+    display: inline-block;
+}
+</style>
+<body>
+<div class="container">
+    <h1>Select your space!</h1>
+    <div>
+        <form action="/space/new" method="GET" class="form1">
+            <p>Click here to list your own space</p>
+            <input class="listbutton" type="submit" value="List a space">
+        </form>
+    </div>
+    <div class="cardbox">
+        <div>
+            <form action="/spaces/by_date" method="GET"> 
+                <label  class="avail1" for="available_from">Available from:</label>
+                    <input type="date" name="available_from">
+                <label  class="avail2" for="available_to">Available to:</label>
+                    <input type="date" name="available_to">
+                    <input class="submit" type="submit" value="Filter" size="50">
+                <p><strong>See below the spaces available in your required dates:</strong></p>
+            </form>
+        </div>
+        <div class="SpaceList">
+            <ul><%@find_space.each do |record| %>
+                <div class="cards">
+                  <%= p "#{record.name} <br/> #{record.description}"%>
+                  <br>
+                  <br>
+                  <form action="space/<%= record.id %>" method="GET">
+                    <input type="submit" value="Details">
+                  </form>
+                </div>
+                <%end%>
+            </ul>
+        </div>
+        <div>
+          <form action="/spaces" method="GET">
+            <input type="submit" value="See all spaces">
+          </form>
+        </div>
+    </div>
+</div>
+</body>

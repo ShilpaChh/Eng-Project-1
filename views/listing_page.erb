@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/style.css" />
+</head>
+<body>
+
+<h1><center>List your place here!</center></h1><br/>
+<form action="/spaces" method="GET">
+  <input type="submit" value="Go back">
+</form>
+<br>
+
+<p><center>Please decide a cool name and a catchy description for your place so you can attract everyone's attention</center></p>
+<p><center>Don't forget to select the dates you want to list it from and to, and the price!</center></p>
+
+<div class="container">
+  <form action="/space/new" method='POST'>
+  <div class="row">
+    <div class="col-25">
+      <label for="fname">Place Name</label>
+    </div>
+    <div class="col-75">
+      <input type="text" id="fname" name="spacename" placeholder="Enter your place name here..">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="available_from">Available from:</label>
+    </div>
+    <div class="col-75">
+      <input type="date" id="available_from" name="available_from">
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-25">
+      <label for="available_to">Available to:</label>
+    </div>
+    <div class="col-75">
+      <input type="date" id="available_to" name="available_to">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="space_price">Space Price</label>
+    </div>
+    <div class="col-75">
+    <span class="gbp">
+        <input type="number" placeholder="Enter whole GBP (&pound;)" min="0" max="10000" step="1" value="" name="space_price" id="space_price" required="required" />    
+    </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
+      <label for="description">Description</label>
+    </div>
+    <div class="col-75">
+      <textarea id="description" name="description" placeholder="Write a description for your place here.." style="height:200px"></textarea>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <input type="submit" value="Submit">
+  </div>
+  </form>
+  <br>
+  <br>
+</div>
+
+</body>
+</html>
